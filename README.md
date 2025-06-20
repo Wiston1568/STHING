@@ -1,74 +1,82 @@
-# 🛡️ STHING – Android Security Toolkit (Hybrid Edition)
-
-**STHING** is a cross-platform Android security toolkit built for bug bounty hunters, red teamers, and mobile security researchers.  
-It works on **Windows** (offline capable) and **Linux** (PowerShell Core) and features real ADB-based logic for MDM detection, root status, IMEI analysis, and Magisk installation.
+# STHING Security Toolkit 🛡️
+> Dev by Bug & wiston1568  
+> Version: 1.0 | PowerShell + Rust | Cross-platform Android Tool
 
 ---
 
 ## ⚙️ Features
 
-- 🔍 Advanced MDM Detection (Knox, Intune, AirWatch, etc.)
-- 💀 MDM Removal (requires root)
-- 📱 IMEI Reader & Spoof Detection
-- 🔓 Root Status + Magisk Detection
-- 🧠 Full Auto Mode (runs all checks)
-- 🧱 Magisk Manager Installer
-- 🔬 Chipset + Device Info Scanner
-- ✅ Works fully offline on Windows with built-in ADB
+- 🔍 Detect & Remove MDM Locks
+- 🔐 IMEI Reader & Spoofer
+- ⚠️ Smart Root Detection
+- 🔧 Chipset & Device Info Scanner
+- 🧠 Full Auto Mode (MDM & Root)
+- 📦 Magisk Manager Installer
 
 ---
 
-## 🚀 Windows (PowerShell) — Quick Launch
+## 🖥️ How to Run (Windows)
 
-### ▶️ One-Liner Method (Recommended)
+1. **Connect your Android device**
+2. **Enable USB Debugging**
+3. **Double-click `sthing_launcher.exe`**
+4. 🧠 Follow the on-screen PowerShell menu
 
-```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex (iwr -UseBasicParsing 'https://raw.githubusercontent.com/wiston1568/STTHING/main/start.ps1')
+> Make sure ADB drivers are installed or include `adb.exe` with the files.
 
-✅ This will:
+---
 
-    Download and run sththing.exe (if available)
+## 📂 File Structure
 
-    Or fall back to run.ps1 + included adb.exe
+STHING/
+├── run.ps1 # The main PowerShell tool
+├── sthing_launcher.exe # Native Windows launcher (.exe)
+├── adb/
+│ ├── adb.exe
+│ ├── AdbWinApi.dll
+│ ├── AdbWinUsbApi.dll
 
-🖱️ Manual Windows Usage
+yaml
+Copy
+Edit
 
-    Download the repo or clone it:
+---
 
-git clone https://github.com/Wiston1568/STTHING
-cd STHING
+## ✅ Requirements
 
-    Run from PowerShell:
+- Windows 10/11 with PowerShell
+- Android phone with ADB enabled
+- No root required for detection; root required for MDM removal
 
-powershell -ExecutionPolicy Bypass -File start.ps1
+---
 
-    Or just double-click STTHING.bat
+## 📦 To Build the Native EXE Yourself (optional)
 
-✅ No installation needed — ADB is bundled for offline use.
-🐧 Linux Install & Use (PowerShell Core)
-🔧 Step 1: Install ADB
+Install Rust: https://rustup.rs
 
-sudo apt install android-tools-adb
+Then run:
+```sh
+cargo build --release
+🔒 Legal Disclaimer
+This tool is for educational and authorized testing only.
+You are responsible for your actions when using this tool.
 
-🔧 Step 2: Install PowerShell Core
+yaml
+Copy
+Edit
 
-sudo apt install powershell
+---
 
-🔧 Step 3: Clone and Run
+### ✅ Next Step
 
-git clone https://github.com/Wiston1568/STTHING
-cd STHING
-pwsh ./run.ps1
+I'll now finish preparing the real `sthing_launcher.exe`. Would you like me to simulate the GitHub folder as a downloadable zip with placeholders so you can upload it right away?
 
-✅ Works on Kali, Ubuntu, Parrot, Arch, and more.
-🛠️ Modify run.ps1 for Linux ADB (Required!)
 
-If you're running on Linux, change every ADB line in run.ps1 from:
 
-& .\adb.exe shell ...
 
-To:
 
-& adb shell ...
+
+
+
 
 
