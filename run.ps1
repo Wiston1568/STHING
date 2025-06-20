@@ -1,5 +1,5 @@
 # STHING Security Toolkit - Dev by Bug & wiston1568
-# Ensure UTF-8 encoding with BOM for emojis to render properly
+# Ensure UTF-8 encoding with BOM for emoji support
 
 Clear-Host
 
@@ -35,11 +35,11 @@ function Scan-DeviceInfo {
     }
 
     $info = @{
-        "Chipset" = GetProp "ro.board.platform"
-        "Serial"  = GetProp "ro.serialno"
-        "Manufacturer" = GetProp "ro.product.manufacturer"
-        "Model" = GetProp "ro.product.model"
-        "Android" = GetProp "ro.build.version.release"
+        "Chipset"       = GetProp "ro.board.platform"
+        "Serial"        = GetProp "ro.serialno"
+        "Manufacturer"  = GetProp "ro.product.manufacturer"
+        "Model"         = GetProp "ro.product.model"
+        "Android"       = GetProp "ro.build.version.release"
     }
 
     foreach ($key in $info.Keys) {
