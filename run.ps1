@@ -3,12 +3,29 @@
 
 Clear-Host
 
+function Download-Adb {
+    $url = "https://dl.google.com/android/repository/platform-tools-latest-windows.zip"
+    $zip = "platform-tools.zip"
+    $folder = "platform-tools"
+
+    Write-Host "`n[~] Downloading ADB platform tools..." -ForegroundColor Yellow
+    Invoke-WebRequest -Uri $url -OutFile $zip -UseBasicParsing
+
+    Expand-Archive -Path $zip -DestinationPath $folder -Force
+    Copy-Item "$folder\platform-tools\adb.exe" -Destination . -Force
+    Copy-Item "$folder\platform-tools\AdbWinApi.dll" -Destination . -Force
+    Copy-Item "$folder\platform-tools\AdbWinUsbApi.dll" -Destination . -Force
+
+    Remove-Item $zip -Force
+    Remove-Item $folder -Recurse -Force
+
+    Write-Host "[✓] ADB tools downloaded and ready!" -ForegroundColor Green
+}
+
 function Check-Adb {
     if (-not (Test-Path ".\adb.exe")) {
-        Write-Host "`n[!] adb.exe not found in current folder." -ForegroundColor Red
-        Write-Host "Please add adb.exe to this folder or add it to PATH." -ForegroundColor Yellow
-        Read-Host "Press Enter to continue..."
-        exit
+        Write-Host "`n[!] adb.exe not found. Attempting download..." -ForegroundColor Yellow
+        Download-Adb
     }
 }
 
@@ -168,4 +185,5 @@ while ($true) {
         default { Write-Host "[!] Invalid option, try again." -ForegroundColor Red; Start-Sleep -Seconds 1 }
     }
 }
+
 
