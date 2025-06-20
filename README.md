@@ -1,3 +1,5 @@
+[![Run in PowerShell](https://img.shields.io/badge/Run%20STHING%20in%20PowerShell-blue?logo=powershell)](https://aka.ms/pscore6)
+
 # STHING Security Toolkit 🛡️
 > Dev by Bug & wiston1568  
 > Version: 1.0 | PowerShell + Rust | Cross-platform Android Tool
