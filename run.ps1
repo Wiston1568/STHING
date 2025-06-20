@@ -43,7 +43,7 @@ function Scan-DeviceInfo {
     }
 
     foreach ($key in $info.Keys) {
-        Write-Host "[+] $key:`t`t$($info[$key])"
+        Write-Host "[+] ${key}:`t`t$($info[$key])"
     }
     Read-Host "Press Enter to continue..."
 }
